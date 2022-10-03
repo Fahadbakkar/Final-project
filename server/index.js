@@ -7,7 +7,7 @@ const {
   getHotels,
   getSpecificHotel,
   newUser,
-  addToFavoite,
+  addToFavorites,
   getFavorites,
   removeFromFavorites,
 } = require("./handlers");
@@ -21,7 +21,7 @@ express()
   .get("/api/get-hotels", getHotels)
   .get("/api/hotels/hotelDetails/:id", getSpecificHotel)
   .post("/api/new-user", newUser)
-  .post("/api/add-to-favorites", addToFavoite)
+  .post("/api/add-to-favorites", addToFavorites)
   .get("/api/get-favorites/:userEmail", getFavorites)
   .patch("/api/remove-from-favorites", removeFromFavorites)
   // this is our catch all endpoint.

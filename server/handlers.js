@@ -80,9 +80,10 @@ const newUser = async (req, res) => {
     client.close();
   }
 };
-const addToFavoite = async (req, res) => {
-  client = new MongoClient(MONGO_URI, options);
+const addToFavorites = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, options);
   const { image, name, address, userEmail, id } = req.body;
+  console.log(req.body);
   try {
     await client.connect();
     const db = client.db("Final-project");
@@ -92,6 +93,10 @@ const addToFavoite = async (req, res) => {
         { email: userEmail },
         { $push: { favorites: { image, id, name, address } } }
       );
+    res.status(200).json({
+      status: 200,
+      message: "Successfully added",
+    });
   } catch (error) {
     res.status(500).json({
       status: 500,
@@ -102,27 +107,10 @@ const addToFavoite = async (req, res) => {
     client.close();
   }
 };
-const getFavorites = async (req, res) => {
-  const client = new MongoClient(MONGO_URI, options);
-  const userEmail = req.params.userEmail;
-  try {
-    await client.connect();
-    const db = client.db("Final-project");
-    const data = await db.collection("users").findOne({ email: userEmail });
-    res.status(200).json({
-      status: 200,
-      result: data,
-      message: "Favorites found",
-    });
-  } catch (error) {
-    console.log(error);
-  } finally {
-    client.close();
-  }
-};
 const removeFromFavorites = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
   const { name, userEmail } = req.body;
+  console.log(req.body);
 
   try {
     await client.connect();
@@ -147,11 +135,29 @@ const removeFromFavorites = async (req, res) => {
     client.close();
   }
 };
+const getFavorites = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, options);
+  const userEmail = req.params.userEmail;
+  try {
+    await client.connect();
+    const db = client.db("Final-project");
+    const data = await db.collection("users").findOne({ email: userEmail });
+    res.status(200).json({
+      status: 200,
+      result: data,
+      message: "Favorites found",
+    });
+  } catch (error) {
+    console.log(error);
+  } finally {
+    client.close();
+  }
+};
 module.exports = {
   getHotels,
   getSpecificHotel,
   newUser,
-  addToFavoite,
+  addToFavorites,
   getFavorites,
   removeFromFavorites,
 };

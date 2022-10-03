@@ -13,12 +13,15 @@ import { useAuth0 } from "@auth0/auth0-react";
 //
 const HotelDetail = () => {
   let navigate = useNavigate();
-  const { favorites, setFavorites } = useContext(FavoriteContext);
+  const { favorites, setFavorites, load, setLoad } =
+    useContext(FavoriteContext);
   const { user, loginWithRedirect } = useAuth0();
-  const id = useParams();
+  const { name } = useParams();
+
   const [comment, setComment] = useState("");
   //fetch specific hotel
   const [hotel, setHotel] = useState({});
+
   const [loaded, Setloaded] = useState(false);
   const [reviews, setReviews] = useState([]);
   const [reviewIndex, setReviewIndex] = useState(
@@ -26,7 +29,7 @@ const HotelDetail = () => {
   );
 
   useEffect(() => {
-    fetch(`/api/hotels/hotelDetails/${id.name}`)
+    fetch(`/api/hotels/hotelDetails/${name}`)
       .then((res) => res.json())
       .then((data) => {
         setHotel(data.data);
@@ -34,6 +37,7 @@ const HotelDetail = () => {
         setReviews(data.data.summary);
       });
   }, []);
+
   //selectRandom Review
   //   useEffect(() => {
   //     const randomSelected = () => {
@@ -50,29 +54,51 @@ const HotelDetail = () => {
   //       setComment(reviews[reviewIndex]);
   //     }, 3000);
   //   }, [comment]);
+  //
+  // remove from favorites
+  const handleRemove = (name) => {
+    setFavorites(favorites.filter((favorite) => favorite.id !== name));
 
-  const handleSubmit = (e) => {
+    fetch("/api/remove-from-favorites", {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        "content-Type": "application/json",
+      },
+      body: JSON.stringify({ userEmail: user.email, name: hotel.name }),
+    })
+      .then((res) => {
+        console.log(res);
+        setLoad(!load);
+      })
+      .catch((error) => {
+        console.error("error", error);
+      });
+  };
+
+  // add to favorites
+  //
+  const handleClick = () => {
     if (user) {
       const body = {
         image: hotel.image,
         name: hotel.name,
         address: hotel.address,
-
         id: hotel.id,
       };
       setFavorites([...favorites, body]);
-      fetch("/api/addToFavorite", {
+
+      fetch("/api/add-to-favorites", {
         method: "POST",
         headers: {
           Accept: "application/json",
           "content-Type": "application/json",
         },
-        body: JSON.stringify({ ...body, userEmail: user.email }),
+        body: JSON.stringify({ ...body, userEmail: user.email.toLowerCase() }),
       })
         .then((res) => res.json())
-        .then((res) => {
-          navigate("/hotels/hoteldetails");
-        })
+        .then(setLoad(!load))
+
         .catch((error) => {
           console.error("error", error);
         });
@@ -80,14 +106,24 @@ const HotelDetail = () => {
       loginWithRedirect();
     }
   };
+  console.log(favorites);
+  console.log(favorites.includes({ id: name }));
   return loaded ? (
     <Wrapper>
       <NameDiv>
         <Favoritediv>
           <Name>{hotel.name}</Name>
-          <Button onClick={handleSubmit}>
-            <AiOutlineStar style={{ color: "#ffde4f", size: "50px" }} />
-          </Button>
+          {!favorites.filter((favorite) => {
+            return favorite.id === name;
+          }).length ? (
+            <Button onClick={handleClick}>
+              <AiOutlineStar style={{ color: "#ffde4f", size: "50px" }} />
+            </Button>
+          ) : (
+            <Remove onClick={handleRemove}>
+              <AiOutlineStar style={{ color: "#c0002d", size: "50px" }} />
+            </Remove>
+          )}
         </Favoritediv>
         <p>
           <TbMapPin />
@@ -113,6 +149,19 @@ const HotelDetail = () => {
     <Loader />
   );
 };
+const Remove = styled.button`
+  font-size: 30px;
+  margin-left: 170px;
+  border: none;
+  background: none;
+  padding: 0;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: all 0.2s linear;
+    fill: red;
+  }
+`;
 const Name = styled.h1``;
 const Button = styled.button`
   border: none;

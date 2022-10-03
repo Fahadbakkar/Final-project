@@ -20,5 +20,5 @@ const App = () => {
     </BrowserRouter>
   );
 };
-console.log("hello");
+
 export default App;
