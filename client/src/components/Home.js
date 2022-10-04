@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-
+import Footer from "./Footer";
 const Home = () => {
   return (
     <>
@@ -22,8 +22,10 @@ const Home = () => {
             />
             <Name>Hotels</Name>
           </BottomDiv>
+          <BottomDiv to="/points-of-interests"></BottomDiv>
         </Category>
       </div>
+      <Footer />
     </>
   );
 };
@@ -33,6 +35,7 @@ flex-direction:row;
 justify-content:center;
 align-items;center;
 height:20vh;
+margin-bottom:8%;
 `;
 const Name = styled.p`
   font-size: 30px;

@@ -11,10 +11,16 @@ const options = {
 
 const getHotels = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
+  const ratings = req.params.badge;
+
   try {
     await client.connect();
     const db = client.db("Final-project");
-    const hotels = await db.collection("Hotels").find().toArray();
+    const hotels = await db
+      .collection("Hotels")
+      .find(ratings !== "All" ? { qualitativeBadgeText: ratings } : {})
+      .toArray();
+
     if (hotels.length > 0) {
       res.status(200).json({
         status: 200,
@@ -153,6 +159,32 @@ const getFavorites = async (req, res) => {
     client.close();
   }
 };
+const getCategories = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, options);
+  try {
+    await client.connect();
+    const db = client.db("Final-project");
+    const result = (
+      await db
+        .collection("Hotels")
+        .find()
+        .project({ qualitativeBadgeText: 1 })
+        .toArray()
+    ).map((category) => category.qualitativeBadgeText);
+
+    res.status(200).json({
+      status: 200,
+      data: result,
+      message: "Successfully retrieved categories",
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ status: 500, message: err.message });
+  } finally {
+    client.close();
+  }
+};
+
 module.exports = {
   getHotels,
   getSpecificHotel,
@@ -160,4 +192,5 @@ module.exports = {
   addToFavorites,
   getFavorites,
   removeFromFavorites,
+  getCategories,
 };

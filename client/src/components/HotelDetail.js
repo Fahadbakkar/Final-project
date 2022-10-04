@@ -106,8 +106,7 @@ const HotelDetail = () => {
       loginWithRedirect();
     }
   };
-  console.log(favorites);
-  console.log(favorites.includes({ id: name }));
+
   return loaded ? (
     <Wrapper>
       <NameDiv>

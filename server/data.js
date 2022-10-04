@@ -2,7 +2,7 @@ const hotels = [
   {
     _id: "173750",
     geoId: "9483",
-    latlng: '45.50057, -73.56847',
+    latlng: "45.50057, -73.56847",
     rating: [8, 10, 10],
     qualitativeBadgeText: "Very Good",
     summary: [
@@ -23,7 +23,7 @@ const hotels = [
   {
     _id: "204419",
     geoId: "25476",
-    latlng: '45.4647, -73.821895',
+    latlng: "45.4647, -73.821895",
 
     rating: [10, 10, 8],
     qualitativeBadgeText: "Exceptional",
@@ -46,7 +46,7 @@ const hotels = [
     _id: "126058",
     geoId: "14727",
 
-    latlng: '45.49703, -73.57335',
+    latlng: "45.49703, -73.57335",
 
     rating: [10, 10, 10],
     qualitativeBadgeText: "Exceptional",
@@ -67,7 +67,7 @@ const hotels = [
   {
     _id: "324184",
     geoId: "2784548",
-    latlng: '45.454833, -73.752734',
+    latlng: "45.454833, -73.752734",
 
     rating: [8, 10, 10],
     qualitativeBadgeText: "Exceptional",
@@ -89,7 +89,7 @@ const hotels = [
   {
     _id: "17192304",
     cityID: "3000030122",
-    latlng: '45.589072,-73.539342',
+    latlng: "45.589072,-73.539342",
     rating: [8, 9, 7],
     qualitativeBadgeText: "very good",
     summary: [
@@ -110,7 +110,7 @@ const hotels = [
   {
     _id: "2149805",
     cityID: "3000030122",
-    latlng: '45.51633, -73.55806',
+    latlng: "45.51633, -73.55806",
     rating: [8, 9, 10],
     qualitativeBadgeText: "good",
     summary: [
@@ -130,7 +130,7 @@ const hotels = [
     _id: "19041505",
     cityID: "3000030122",
 
-    latlng: '45.4877015, -73.57458729',
+    latlng: "45.4877015, -73.57458729",
     rating: [10, 9.5, 10],
     qualitativeBadgeText: "Exceptional",
     summary: [
@@ -153,7 +153,7 @@ const hotels = [
     _id: "40691106",
     cityID: "3000030122",
 
-    latlng: '45.517376, -73.561662',
+    latlng: "45.517376, -73.561662",
     rating: [10, 10, 9],
     qualitativeBadgeText: "Very good",
     summary: [
@@ -175,7 +175,7 @@ const hotels = [
   {
     _id: "62929704",
     cityID: "3000030122",
-    latlng: '45.55207909, -73.55169704',
+    latlng: "45.55207909, -73.55169704",
     rating: [10, 10],
     qualitativeBadgeText: "Exceptional",
     summary: [
@@ -194,7 +194,7 @@ const hotels = [
   },
   {
     _id: 5446778,
-    latlng: '45.502591474995036, -73.57437827294342',
+    latlng: "45.502591474995036, -73.57437827294342",
     rating: [9, 9.5, 10],
     qualitativeBadgeText: "Exceptioal",
     summary: [
@@ -214,7 +214,7 @@ const hotels = [
   },
   {
     _id: 125476,
-    latlng: '45.507357720402936, -73.56443585944957',
+    latlng: "45.507357720402936, -73.56443585944957",
     rating: [8, 8, 8.5],
     qualitativeBadgeText: "Very good",
     summary: [
@@ -234,33 +234,205 @@ const hotels = [
     url: "https://www.priceline.com/relax/at/66250/from/20220928/to/20220929/rooms/1?pclnId=A0317D55779B9EC86382F88D9902F31EA7D25752398D2C359A00D712F14ADEF2467C0DC21D3EB2FC16DACF84C983896B1BBED3B04A2B690D503834A10696ABCCF671E8E2C1949ACA88AE461FDC5B4D0F852C1191FF93A4280DEA50862EC14CDE0DF27BCFD02803A6&gid=3981&cityId=3000030122&cur=CAD&backlink-id=x4e3n00p8tk&qdp=315&vrid=17e9b1d416c0c2e4a3741f7f7fd48353",
   },
   {
-    _id:5599874,
-   latlng: '45.50776981941193, -73.571426844108',
-    rating:[8,9,10],
-    qualitativeBadgeText:"Exceptional",
-    summary:["My daughter had a blast in the swimming pool.","Very close to museums.","Rooms are updated and spacious."],
-    address:'380 Rue Sherbrooke West, Montreal, QC, Canada',
-    image:"https://q-xx.bstatic.com/xdata/images/hotel/max1280x900/19176180.jpg?k=3072b2b5137e8dbfc6dd8f62ff46541f499c54dcc9c6b905ad4f40007c85f5d8&o=",
-    caption:"Hilton Garden Inn Montreal Centre-Ville <span class='highlighted'>Montreal</span>, Quebec, Canada",
-    name:"Hilton Garden Inn Montreal Centre-Ville",
-    description:"Featuring a restaurant and indoor rooftop pool, this Hilton hotel is located 3 minutes' walk from Place-des-Arts Metro Station. It offers spacious rooms with free WiFi. A 32-inch flat-screen cable TV with HBO is included in each contemporary room at Hilton Garden Inn Montreal. Each room has a microwave, refrigerator and coffee maker. A desk and chair are also included. Guests at Hilton Garden Inn Montreal Center-Ville can workout in the well-equipped gym or relax in the sauna or hot tub. Café-Resto-Bar Circos serves a breakfast buffet along with lunch and dinner. Guests can purchase snacks and drinks at the Pavilion Pantry. Montreal Hilton Garden Inn is within 8 minutes' walk from Montreal Museum of Contemporary Art. Montreal’s Underground City is 1640 feet away.",
-    url:"https://www.priceline.com/relax/at/9168703/from/20220928/to/20220929/rooms/1?pclnId=DFF4DA89866E6D3A8F61006704358E8011F82FDAFF8A940C4CA8AF36933ABF26F38A8C581BFEC2BB9CAD835E62258BE35601EC63A437C24A27A44BE8E402A4716B44DFC3CE619A460EC68417C4032D3F23762EA84CE754E6823F5F75195A36FC98790CFE8D18DCD3&gid=3737&cityId=3000030122&cur=CAD&backlink-id=t4g37yatckc&qdp=279&vrid=0a46085b35a8597705ba5ffe728a0edf"
+    _id: 5599874,
+    latlng: "45.50776981941193, -73.571426844108",
+    rating: [8, 9, 10],
+    qualitativeBadgeText: "Exceptional",
+    summary: [
+      "My daughter had a blast in the swimming pool.",
+      "Very close to museums.",
+      "Rooms are updated and spacious.",
+    ],
+    address: "380 Rue Sherbrooke West, Montreal, QC, Canada",
+    image:
+      "https://q-xx.bstatic.com/xdata/images/hotel/max1280x900/19176180.jpg?k=3072b2b5137e8dbfc6dd8f62ff46541f499c54dcc9c6b905ad4f40007c85f5d8&o=",
+    caption:
+      "Hilton Garden Inn Montreal Centre-Ville <span class='highlighted'>Montreal</span>, Quebec, Canada",
+    name: "Hilton Garden Inn Montreal Centre-Ville",
+    description:
+      "Featuring a restaurant and indoor rooftop pool, this Hilton hotel is located 3 minutes' walk from Place-des-Arts Metro Station. It offers spacious rooms with free WiFi. A 32-inch flat-screen cable TV with HBO is included in each contemporary room at Hilton Garden Inn Montreal. Each room has a microwave, refrigerator and coffee maker. A desk and chair are also included. Guests at Hilton Garden Inn Montreal Center-Ville can workout in the well-equipped gym or relax in the sauna or hot tub. Café-Resto-Bar Circos serves a breakfast buffet along with lunch and dinner. Guests can purchase snacks and drinks at the Pavilion Pantry. Montreal Hilton Garden Inn is within 8 minutes' walk from Montreal Museum of Contemporary Art. Montreal’s Underground City is 1640 feet away.",
+    url: "https://www.priceline.com/relax/at/9168703/from/20220928/to/20220929/rooms/1?pclnId=DFF4DA89866E6D3A8F61006704358E8011F82FDAFF8A940C4CA8AF36933ABF26F38A8C581BFEC2BB9CAD835E62258BE35601EC63A437C24A27A44BE8E402A4716B44DFC3CE619A460EC68417C4032D3F23762EA84CE754E6823F5F75195A36FC98790CFE8D18DCD3&gid=3737&cityId=3000030122&cur=CAD&backlink-id=t4g37yatckc&qdp=279&vrid=0a46085b35a8597705ba5ffe728a0edf",
   },
   {
-    _id:097656,
-    latlng:'45.51221818203025,-73.56941781527236',
-    rating:[10,9,9.5],
-    qualitativeBadgeText:"Amazing",
-    summary:["The Location The Staff The gym is really nice We had a issue with our room which was no one's fault, and the team was able to upgrade us to a very nice room which was very generous","Location & cleanliness","I loved everything about this hotel. Theres a lovely outdoor patio to have a cocktail. The room was clean and very comfortable. It was very quiet and restful. The valet parking was easy!"],
-    address:"10 Sherbrooke St. West, Montreal, QC, Canada",
-    image:"https://q-xx.bstatic.com/xdata/images/hotel/max1280x900/58153254.jpg?k=386352665abec0aa33683bedc0d64b29e84710fcd7919c7b45263b24df28489b&o=",
-    caption:"HOTEL10 Montreal <span class='highlighted'>Montreal</span>, Quebec, Canada",
-    name:"HOTEL10 Montreal",
-    description:"This contemporary boutique hotel in Montreal's city center offers gourmet on-site dining options, a bar and gym. Plateau Mont-Royal is within 2 minutes walk. Decorated with designer furnishings, each spacious guest room at HOTEL10 includes a 55-inch flat-screen TV, H20 toiletries and bathrobes. A large work desk is provided as well as free WiFi. The hotel's buffet breakfast offers a variety of local and seasonal items with hot or cold options. The hotel also offers an à la carte menu. In the lobby, guests will find Bar à 20, a coffee and wine bar. The pet-friendly HOTEL10 is located just 15 minutes’ walk from Saint-Denis Theater and the vibrant Latin Quarter. Old Montreal is 1.2 mi away. Nearby access to public transport systems also make exploring the city easy and quick.",
-    url:"https://www.priceline.com/relax/at/3085905/from/20220928/to/20220929/rooms/1?pclnId=0227651E3445F80E0235EF9D16BC9CF890B612E71456456A4CA8AF36933ABF2628FD028CA942315229850A1995AB05AA4B730D989718ECE4C355E349824530121C7789B7F389DB25851AB13D67108CA223762EA84CE754E6823F5F75195A36FC36DCBB27D5A81595&gid=3561&cityId=3000030122&cur=CAD&backlink-id=9s8x2umt488&qdp=289&vrid=0a4cbb96f038c0254600bdf5d490256d"
-}
-
+    _id: 097656,
+    latlng: "45.51221818203025,-73.56941781527236",
+    rating: [10, 9, 9.5],
+    qualitativeBadgeText: "Amazing",
+    summary: [
+      "The Location The Staff The gym is really nice We had a issue with our room which was no one's fault, and the team was able to upgrade us to a very nice room which was very generous",
+      "Location & cleanliness",
+      "I loved everything about this hotel. Theres a lovely outdoor patio to have a cocktail. The room was clean and very comfortable. It was very quiet and restful. The valet parking was easy!",
+    ],
+    address: "10 Sherbrooke St. West, Montreal, QC, Canada",
+    image:
+      "https://q-xx.bstatic.com/xdata/images/hotel/max1280x900/58153254.jpg?k=386352665abec0aa33683bedc0d64b29e84710fcd7919c7b45263b24df28489b&o=",
+    caption:
+      "HOTEL10 Montreal <span class='highlighted'>Montreal</span>, Quebec, Canada",
+    name: "HOTEL10 Montreal",
+    description:
+      "This contemporary boutique hotel in Montreal's city center offers gourmet on-site dining options, a bar and gym. Plateau Mont-Royal is within 2 minutes walk. Decorated with designer furnishings, each spacious guest room at HOTEL10 includes a 55-inch flat-screen TV, H20 toiletries and bathrobes. A large work desk is provided as well as free WiFi. The hotel's buffet breakfast offers a variety of local and seasonal items with hot or cold options. The hotel also offers an à la carte menu. In the lobby, guests will find Bar à 20, a coffee and wine bar. The pet-friendly HOTEL10 is located just 15 minutes’ walk from Saint-Denis Theater and the vibrant Latin Quarter. Old Montreal is 1.2 mi away. Nearby access to public transport systems also make exploring the city easy and quick.",
+    url: "https://www.priceline.com/relax/at/3085905/from/20220928/to/20220929/rooms/1?pclnId=0227651E3445F80E0235EF9D16BC9CF890B612E71456456A4CA8AF36933ABF2628FD028CA942315229850A1995AB05AA4B730D989718ECE4C355E349824530121C7789B7F389DB25851AB13D67108CA223762EA84CE754E6823F5F75195A36FC36DCBB27D5A81595&gid=3561&cityId=3000030122&cur=CAD&backlink-id=9s8x2umt488&qdp=289&vrid=0a4cbb96f038c0254600bdf5d490256d",
+  },
 ];
+const pointOfInterest = [
+  {
+    name: "Old Montréal and the Old Port",
+    description:
+      "Explore the birthplace of a great metropolis in the Americas, founded in 1642. Old Montréal is the perfect place for a trip back in time. The old cobbled streets, witnesses to the city’s origins, are today lined with art galleries, shops and elegant buildings from the 18th and 19th centuries. The Old Port, meanwhile, is where skaters, cyclists, runners and families gather, in summer as well as winter. ",
+    url: "www.oldportofmontreal.com",
+    image:
+      "https://www.admtl.com/sites/default/files/PlageQuaiHorloge_534x534.jpg",
+    lat: "45.51291941149967",
+    lng: " -73.54843060109657",
+    copy: "© Old Port of Montréal",
+  },
+  {
+    name: "La Grande roue de Montreal",
+    description:
+      "This 60-metre observation wheel is the tallest in Canada and equipped with 42 luxurious, top-of-the-line, climatecontrolled cabins. Hop on board and appreciate panoramic views of the city, the St. Lawrence River, and, on occasion, fireworks display. Open 365 days a year.",
+    url: "www.lagranderouedemontreal.com/en",
+    image:
+      "https://www.admtl.com/sites/default/files/2018/37231-Cre%CC%81dit%20FR%20%C2%A9%20Les%20Ponts%20Jacques%20Cartier%20et%20Champlain%20Incorpore%CC%81e-EN%20Credit%20%C2%A9%20The%20Jacques%20Cartier%20and%20Champlain%20bridges%20incorporated.jpg",
+    lat: "45.5090181727287",
+
+    lng: "-73.54893357408143",
+    copy: "© La Grande roue de Montreal",
+  },
+  {
+    name: "Cité Mémoire | Montréal en Histoires",
+    description:
+      "An enchanting historic walk down memory lane, Cité Mémoire transforms Old Montréal into a giant, metaphorical open-air museum. The work—which consists of some 20 video projections on trees, walls, the ground, you name it—takes place all over the old city and invites passersby to meet some of the characters who’ve shaped Montréal since its 1642 inception.",
+    url: "www.montrealenhistoires.com",
+    image:
+      "https://www.admtl.com/sites/default/files/2018/34084-Credit%20FR%20-Cite%20memoire%20-%20Eva%20Blue-EN%20Credit%20-%20Cite%20memoire%20-%20Eva%20Blue.jpg",
+    lat: "45.50031955724029",
+    lng: "-73.55816998809522",
+    copy: "© Cité mémoire - Eva Blue",
+  },
+  {
+    name: "Notre-Dame Basilica",
+    description:
+      "A masterpiece of Gothic Revival architecture, Notre-Dame Basilica was built between 1824 and 1829. The magnificent interior in wood and the boldly modern design of the Notre-Dame-du-Sacré-Coeur Chapel, captivate hundreds of thousands of visitors each year. Paintings, sculptures, and stained-glass windows illustrate biblical passages as well as 350 years of parish history. The immersive light and sound show experience AURA takes you through an exploration of an unexpected and stunning universe.",
+    url: "www.basiliquenotredame.ca",
+    image:
+      "https://www.admtl.com/sites/default/files/2018/34160-Cre%CC%81dit%20FR%20%C2%A9%20Moment%20Factory-EN%20Credit%20%C2%A9%20Moment%20Factory.jpg",
+    lat: "45.50466065994367",
+    lng: "-73.55610968371914",
+    copy: "© Moment Factory",
+  },
+  {
+    name: "Pointe-à-Callière, Montréal Archaeology and History Complex",
+    description:
+      "On the very spot where the city was founded, this museum tells the archeological story of Montréal from the 14th century to today. Pointe-à-Callière, the birthplace of Montréal and a National Historic Site, offers visitors the opportunity to explore an original underground circuit leading through archaeological excavations starting with Indigenous settlements. At the start of their visit, an immersive multimedia show presents a high-speed view of the city’s history, the remains come to life and the count down begins! For Montréal’s 375th anniversary in 2017, the Museum restored the Collector Sewer, the first of its kind to be built in Canada, which provides an underground connection between the Fort Ville-Marie Pavilion and the main building.",
+    url: "www.pacmusee.qc.ca/en",
+    image:
+      "https://www.admtl.com/sites/default/files/2018/15599-Credit%20FR%20-%20Pointe-a-Calliere%2C%20Caroline%20Bergeron.jpg",
+    lat: "45.50290674435723",
+    lng: "-73.55422044576711",
+    copy: "© Pointe-a-Calliere, Caroline Bergeron",
+  },
+  {
+    name: "RÉSO – the underground “city”",
+    description:
+      "Spread out beneath the downtown core are 33 km of connecting passageways, plazas and meeting places: Montréal’s underground city.Some 500,000 people use this extensive pedestrian network every day. It is home to about 2,000 retail outlets and 200 restaurants. The network also connects to 10 major hotels, museums, concert halls, university campuses, 8 metro stations as well as train and bus stations. ",
+    url: "",
+    image:
+      "https://www.admtl.com/sites/default/files/2018/Souterrains_534x534.jpg",
+    lat: "45.50240295015873",
+    lng: "-73.56042257275116",
+    copy: "© Tourisme Montréal, Stéphan Poulin",
+  },
+  {
+    name: "The Montréal Museum of Fine Arts",
+    description:
+      "The MMFA’s innovative temporary exhibitions combine artistic disciplines (fine arts, music, film, fashion and design) and are circulated to museums around the world. Its encyclopedic collection, which is on display in five pavilions, includes international art, world cultures, decorative arts and design, and Quebec and Canadian art (including an appreciable selection of Inuit art). The new Michal and Renata Hornstein Pavilion for Peace is devoted to international art and education. Humanist, socially engaged, and inclusive, it embodies the MMFA’s fundamental values. The complex is also home to an acclaimed concert hall graced with unparalleled acoustics and 20 Tiffany stained glass windows. Outside in the sculpture garden are works from the modern era to the present day. ",
+    url: "http://www.mbam.qc.ca/en/",
+    image:
+      "https://www.admtl.com/sites/default/files/2018/2626-Credit%20FR%20-%C2%AE%20Musee%20des%20beaux-arts%20de%20Montreal%2C%20Christine%20Guest-EN%20Credit%20-%C2%AE%20The%20Montreal%20Museum%20of%20Fine%20Arts%2C%20Christine%20Guest.jpg",
+    lat: "45.49868732179112",
+    lng: "-73.57934645740728",
+    copy: "© Tourisme Montréal, Stéphan Poulin",
+  },
+  {
+    name: "Observatoire Place Ville Marie",
+    description:
+      "A unique experience downtown from more than 185 meters above ground, the Observatoire Place Ville Marie is open year-round and offers exceptional 360-degree views of the city and its main attractions. It is also home to a large, heated outdoor patio that moves to the rhythm of festivals, as well as Les Enfants Terribles, the bistronomic brasserie that has the distinction of being the most elevated restaurant in town. ",
+    url: "www.observatoire360.com/en",
+    image:
+      "https://www.admtl.com/sites/default/files/2018/31347-Cre%CC%81dit%20FR%20%C2%A9%20Cimon%20Parent-EN%20Credit%20%C2%A9%20Cimon%20Parent.jpg",
+    lat: "45.50198891058725",
+    lng: "-73.56881393042322",
+    copy: "© Cimon Parent",
+  },
+  {
+    name: "Parc Jean-Drapeau",
+    description:
+      "Spanning two islands, Parc Jean-Drapeau offers a multitude of activities and plays host to a variety of festivals and events all year long. Île Sainte-Hélène is home to the La Ronde amusement park as well as the Biosphere and the Stewart Museum, while Île Notre-Dame, with its 25 km of paved trails, is a favoured destination for cyclists and a mosaic of waterways and verdant spaces where Montréalers come to relax and picnic.",
+    url: "www.parcjeandrapeau.com/en/",
+    image:
+      "https://www.admtl.com/sites/default/files/2018/ParcJeanDrapeau_534x534.jpg",
+    lat: "45.51458168681841",
+    lng: "-73.53380564695428",
+    copy: "© Parc Jean-Drapeau, Denis Labine",
+  },
+  {
+    name: "Casino de Montréal",
+    description:
+      "Located in the former France and Québec pavilions built for Expo 67, the Casino de Montréal is an entertainment hotspot for those who love games of chance. Come enjoy a safe, fun-filled experience at one of the world’s biggest casinos, and choose from a selection of games that’s practically unrivalled in North America. Book your visit online to get priority access (http://rsvpmontreal.lotoquebec.com/T/WF/11275/VnTnB6/Register/en-US/Form...). Guests must be 18 or older.",
+    url: "https://casinos.lotoquebec.com/en/montreal/home",
+    image:
+      "https://www.admtl.com/sites/default/files/2021/CasinoMontreal_YUL_534x534.jpg",
+    lat: "45.50567309730096",
+    lng: "-73.52569617460303",
+    copy: "© Casino de Montréal",
+  },
+  {
+    name: "Mount Royal Park",
+    description:
+      "Inaugurated in 1876, Mount Royal Park was designed by Frederick Law Olmsted, who also gave the world New York's Central Park. It is an ideal place to admire a wide variety of plants and birds, and for enjoying and for enjoying all kinds of outdoor activities. This splendid woodland is a haven for birds, crisscrossed by walking trails and featuring lookouts that offer superb views of Montréal.",
+    url: "lemontroyal.qc.ca",
+    image:
+      "https://www.admtl.com/sites/default/files/Parc_Mont_Royal_Enfants_534x534.jpg",
+
+    lat: "45.50173347012764",
+    lng: " -73.59310585190849",
+    copy: "© Les amis de la montagne / S. Montigné, 2008",
+  },
+  {
+    name: "This majestic structure, with its impressive",
+    description:
+      "This majestic structure, with its impressive dome, attracts pilgrims from all over the world. Perched on the slopes of Mount Royal, the sanctuary of Saint Joseph's Oratory is one of the world's most-visited pilgrimage sites. The imposing edifice, topped by a 97-metre dome, contrasts sharply with the slight stature of its founder, Saint André of Montréal (formerly Brother André), the humble doorkeeper who inspired its construction in 1904.",
+    url: "saint-joseph.org",
+    image:
+      "https://www.admtl.com/sites/default/files/2018/16672-Credit%20FR%20-%20Andre%20Jodoin-EN%20Credit%20-%20Andre%20Jodoin.jpg",
+    lat: "45.49207005326773",
+    lng: "-73.61646681255777",
+    copy: "© Andre Jodoin",
+  },
+  {
+    name: "Montréal Tower | Olympic Park",
+    description:
+      "This architectural marvel includes the tallest inclined tower in the world along with its Sports Centre. Built to host the 1976 Summer Games, Olympic Park has become the international symbol of the city of Montréal. Ride the funicular to the top of the Montréal Tower for unmatched views of the city and surrounding area. Or check out the Sports Centre, which houses seven pools and a multi-sport facility.",
+    url: "parcolympique.qc.ca",
+    image:
+      "https://www.admtl.com/sites/default/files/ParcOlympique_534x534.jpg",
+    lat: "45.55983418991089",
+    lng: "-73.5514082439139",
+    copy: "© Tourisme Montréal, Mathieu Dupuis",
+  },
+  {
+    name: "Space for Life",
+    description:
+      "Four institutions form a place where nature and science are honoured, and visitors can better understand, and learn to protect, our planet’s biodiversity: Montreal Botanical Garden: A magnificent 75-hectare oasis where some 22,000-plant species and cultivars flourish in various themed gardens.Biodome de Montréal*: An impressively realistic life-size re-creation of five of the most picturesque ecosystems in the Americas. Montréal Insectarium: The fascinating world of insects is revealed in this collection of thousands of living and naturalized specimens. Rio Tinto Alcan Planetarium: The cosmos is unveiled in all its splendour under the huge dome of the Théâtre des Étoiles.",
+    url: "espacepourlavie.ca",
+    image:
+      "https://www.admtl.com/sites/default/files/2018/34564-Credit%20FR%20-%20Tourisme%20Montreal%20-%20Marie%20Deschene-EN%20Credit%20-%20Tourisme%20Montreal%20-%20Marie%20Deschene.jpg",
+    lat: "45.557040813233655",
+    lng: "-73.55640248624198",
+    copy: "©Tourisme Montréal - Marie Deschene",
+  },
+];
+
 const axios = require("axios");
 
 // const options = {
@@ -293,4 +465,4 @@ const axios = require("axios");
 // }).catch(function (error) {
 // 	console.error(error);
 // });
-module.exports = {hotels}
+module.exports = { hotels, pointOfInterest };

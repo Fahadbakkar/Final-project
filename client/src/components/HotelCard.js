@@ -12,6 +12,7 @@ const HotelCard = ({
   rating,
 }) => {
   let sum = 0;
+
   rating.forEach((rat) => {
     sum += rat;
   });

@@ -10,6 +10,7 @@ const {
   addToFavorites,
   getFavorites,
   removeFromFavorites,
+  getCategories,
 } = require("./handlers");
 
 express()
@@ -18,12 +19,13 @@ express()
   .use(express.static("public"))
   //
   // endpoints
-  .get("/api/get-hotels", getHotels)
+  .get("/api/get-hotels/:badge", getHotels)
   .get("/api/hotels/hotelDetails/:id", getSpecificHotel)
   .post("/api/new-user", newUser)
   .post("/api/add-to-favorites", addToFavorites)
   .get("/api/get-favorites/:userEmail", getFavorites)
   .patch("/api/remove-from-favorites", removeFromFavorites)
+  .get("/api/categories", getCategories)
   // this is our catch all endpoint.
   .get("*", (req, res) => {
     res.status(404).json({

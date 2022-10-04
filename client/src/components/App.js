@@ -5,6 +5,8 @@ import Home from "./Home";
 import Hotels from "./Hotels";
 import { useAuth0 } from "@auth0/auth0-react";
 import HotelDetail from "./HotelDetail";
+import Favorites from "./Favorites";
+import AboutUs from "./AboutUs";
 const App = () => {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   return (
@@ -16,6 +18,9 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/hotels" element={<Hotels />} />
         <Route path="/hotels/hoteldetails/:name" element={<HotelDetail />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/aboutUs" element={<AboutUs />} />
+        <Route path="/points-of-interests" element={<POI />} />
       </Routes>
     </BrowserRouter>
   );
