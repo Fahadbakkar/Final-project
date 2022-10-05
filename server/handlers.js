@@ -184,6 +184,24 @@ const getCategories = async (req, res) => {
     client.close();
   }
 };
+const getPOI = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, options);
+  try {
+    await client.connect();
+    const db = client.db("Final-project");
+    const result = await db.collection("POI").find().toArray();
+    res.status(200).json({
+      status: 200,
+      data: result,
+      message: "POI achieved",
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ status: 500, message: err.message });
+  } finally {
+    client.close();
+  }
+};
 
 module.exports = {
   getHotels,
@@ -193,4 +211,5 @@ module.exports = {
   getFavorites,
   removeFromFavorites,
   getCategories,
+  getPOI,
 };

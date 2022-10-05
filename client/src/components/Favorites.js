@@ -14,7 +14,6 @@ const Favorites = () => {
     fetch("/api/get-favorites/" + user.email)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setData(data.result.favorites);
         setLoading(true);
       })

@@ -1,7 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const PORT = process.env.PORT || 8000;
-
+const request = require("request");
 //handlers
 const {
   getHotels,
@@ -11,6 +11,7 @@ const {
   getFavorites,
   removeFromFavorites,
   getCategories,
+  getPOI,
 } = require("./handlers");
 
 express()
@@ -26,6 +27,8 @@ express()
   .get("/api/get-favorites/:userEmail", getFavorites)
   .patch("/api/remove-from-favorites", removeFromFavorites)
   .get("/api/categories", getCategories)
+  .get("/api/get-POI", getPOI)
+
   // this is our catch all endpoint.
   .get("*", (req, res) => {
     res.status(404).json({

@@ -7,6 +7,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import HotelDetail from "./HotelDetail";
 import Favorites from "./Favorites";
 import AboutUs from "./AboutUs";
+import POI from "./POI";
 const App = () => {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   return (

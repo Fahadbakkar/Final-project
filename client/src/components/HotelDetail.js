@@ -8,6 +8,9 @@ import Map from "./Map";
 import { FavoriteContext } from "./FavoriteContext";
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import { Alert } from "@mui/material";
+import { Snackbar } from "@mui/material";
+import { textAlign } from "@mui/system";
 
 //
 //
@@ -21,7 +24,8 @@ const HotelDetail = () => {
   const [comment, setComment] = useState("");
   //fetch specific hotel
   const [hotel, setHotel] = useState({});
-
+  const [alert, setAlert] = useState(false);
+  const [remove, setRemove] = useState(false);
   const [loaded, Setloaded] = useState(false);
   const [reviews, setReviews] = useState([]);
   const [reviewIndex, setReviewIndex] = useState(
@@ -69,6 +73,7 @@ const HotelDetail = () => {
     })
       .then((res) => {
         console.log(res);
+        setRemove(true);
         setLoad(!load);
       })
       .catch((error) => {
@@ -98,7 +103,7 @@ const HotelDetail = () => {
       })
         .then((res) => res.json())
         .then(setLoad(!load))
-
+        .then(setAlert(true))
         .catch((error) => {
           console.error("error", error);
         });
@@ -109,6 +114,40 @@ const HotelDetail = () => {
 
   return loaded ? (
     <Wrapper>
+      {alert && (
+        <Alert
+          style={{
+            marginLeft: "40%",
+            marginRight: "48%",
+            backgroundColor: "#fbc02d",
+            fontWeight: "bolder",
+          }}
+          severity="success"
+          onClose={() => setAlert(false)}
+          elevation={6}
+          variant="filled"
+        >
+          {" "}
+          Added to favorites{" "}
+        </Alert>
+      )}
+      {remove && (
+        <Alert
+          style={{
+            marginLeft: "40%",
+            marginRight: "48%",
+            backgroundColor: "#f44336",
+            fontWeight: "bolder",
+          }}
+          severity="success"
+          onClose={() => setRemove(false)}
+          elevation={6}
+          variant="filled"
+        >
+          {" "}
+          Removed from favorites{" "}
+        </Alert>
+      )}
       <NameDiv>
         <Favoritediv>
           <Name>{hotel.name}</Name>

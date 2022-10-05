@@ -22,7 +22,10 @@ const Home = () => {
             />
             <Name>Hotels</Name>
           </BottomDiv>
-          <BottomDiv to="/points-of-interests"></BottomDiv>
+          <BottomDiv to="/points-of-interests">
+            <Img src="https://www.fcholidays.com/sites/default/files/styles/product_highlight/public/uploads/2019-02/Montreal%C2%A9TQFleming%2CP%20TQ-011946.jpg" />
+            <Name>Point of Interests</Name>
+          </BottomDiv>
         </Category>
       </div>
       <Footer />
@@ -51,6 +54,7 @@ const BottomDiv = styled(Link)`
   text-decoration: none;
   align-items: center;
   margin-top: 5%;
+  margin-right: 2%;
   &:hover {
     cursor: pointer;
     transition: all 0.2s ease;
