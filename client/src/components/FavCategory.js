@@ -1,9 +1,10 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 import styled from "styled-components";
-import Loader from "./Loader";
-const Category = ({ value, setValue }) => {
+const FavCategory = ({ value, setValue }) => {
   const [check, setCheck] = useState("All");
+  const { user } = useAuth0();
+
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const handleChange = (e) => {
@@ -11,16 +12,14 @@ const Category = ({ value, setValue }) => {
 
     setValue(e.target.value);
   };
-
   useEffect(() => {
-    fetch("/api/categories")
+    fetch("/api/favCat/" + user.email)
       .then((res) => res.json())
       .then((data) => {
         setItems(data.data);
         setLoading(true);
       });
   }, []);
-
   let noDuplicates = [...new Set(items)];
   noDuplicates.push("All");
 
@@ -46,7 +45,7 @@ const Category = ({ value, setValue }) => {
             })}
         </RadioDiv>
       ) : (
-        <Loader />
+        <p>Loading...</p>
       )}
     </>
   );
@@ -58,11 +57,10 @@ const Label = styled.label`
   margin-top: 5px;
   font-weight: bold;
 `;
-
 const RadioDiv = styled.div`
   display: flex;
   flex-direction: column;
   font-size: 20px;
   align-items: center;
 `;
-export default Category;
+export default FavCategory;

@@ -1,4 +1,5 @@
 "use strict";
+const { json } = require("express");
 const { MongoClient } = require("mongodb");
 
 require("dotenv").config();
@@ -37,7 +38,7 @@ const getHotels = async (req, res) => {
 
 const getSpecificHotel = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
-  const id = req.params.id;
+  const id = req.params._id;
 
   try {
     await client.connect();
@@ -88,8 +89,8 @@ const newUser = async (req, res) => {
 };
 const addToFavorites = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
-  const { image, name, address, userEmail, id } = req.body;
-  console.log(req.body);
+  const { image, name, address, userEmail, id, category } = req.body;
+
   try {
     await client.connect();
     const db = client.db("Final-project");
@@ -97,7 +98,7 @@ const addToFavorites = async (req, res) => {
       .collection("users")
       .updateOne(
         { email: userEmail },
-        { $push: { favorites: { image, id, name, address } } }
+        { $push: { favorites: { image, id, name, address, category } } }
       );
     res.status(200).json({
       status: 200,
@@ -115,18 +116,14 @@ const addToFavorites = async (req, res) => {
 };
 const removeFromFavorites = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
-  const { name, userEmail } = req.body;
-  console.log(req.body);
-
+  const { name, userEmail, id } = req.body;
+  console.log(id);
   try {
     await client.connect();
     const db = client.db("Final-project");
     const findhotel = await db
       .collection("users")
-      .updateOne(
-        { email: userEmail },
-        { $pull: { favorites: { name: name } } }
-      );
+      .updateOne({ email: userEmail }, { $pull: { favorites: { id: id } } });
     res.status(200).json({
       status: 200,
       message: "Successfully removed",
@@ -144,16 +141,30 @@ const removeFromFavorites = async (req, res) => {
 const getFavorites = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
   const userEmail = req.params.userEmail;
+  const category = req.params.category;
+  console.log(category);
   try {
     await client.connect();
     const db = client.db("Final-project");
-    const data = await db.collection("users").findOne({ email: userEmail });
+
+    const data = await db.collection("users").findOne({
+      email: userEmail,
+    });
+
+    const sortedArray = data.favorites.filter(
+      (favorite) => favorite.category === category
+    );
     res.status(200).json({
       status: 200,
-      result: data,
+      result: category !== "All" ? sortedArray : data.favorites,
       message: "Favorites found",
     });
   } catch (error) {
+    res.status(400).json({
+      status: 400,
+
+      message: "Favorites not found",
+    });
     console.log(error);
   } finally {
     client.close();
@@ -203,6 +214,91 @@ const getPOI = async (req, res) => {
   }
 };
 
+const getRestos = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, options);
+  const price = req.params.price;
+  try {
+    await client.connect();
+    const db = client.db("Final-project");
+    const result = await db
+      .collection("resto")
+      .find(price !== "All" ? { price_level: price } : {})
+      .toArray();
+    res.status(200).json({
+      status: 200,
+      data: result,
+      message: "received restos",
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ status: 500, message: err.message });
+  } finally {
+    client.close();
+  }
+};
+
+const getSpecificResto = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, options);
+  const _id = req.params._id;
+  console.log(req.params._id);
+  try {
+    await client.connect();
+    const db = client.db("Final-project");
+    const resto = await db.collection("resto").findOne({ _id: _id });
+    res.status(200).json({
+      status: 200,
+      data: resto,
+    });
+  } catch (error) {
+    console.log(error);
+  } finally {
+    client.close();
+  }
+};
+const getCatResto = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, options);
+  try {
+    await client.connect();
+    const db = client.db("Final-project");
+    const result = (
+      await db.collection("resto").find().project({ price_level: 1 }).toArray()
+    ).map((category) => category.price_level);
+    console.log(result);
+    res.status(200).json({
+      status: 200,
+      data: result,
+      message: "Successfully retrieved categories",
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ status: 500, message: err.message });
+  } finally {
+    client.close();
+  }
+};
+const getFavCat = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, options);
+  const email = req.params.userEmail;
+  try {
+    await client.connect();
+    const db = client.db("Final-project");
+    const result = (
+      await db.collection("users").findOne({ email: email })
+    ).favorites.map((favorite) => favorite.category);
+
+    res.status(200).json({
+      status: 200,
+      data: result,
+      message: "Successfully retrieved categories",
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ status: 500, message: err.message });
+  } finally {
+    client.close();
+  }
+};
+
 module.exports = {
   getHotels,
   getSpecificHotel,
@@ -212,4 +308,8 @@ module.exports = {
   removeFromFavorites,
   getCategories,
   getPOI,
+  getRestos,
+  getSpecificResto,
+  getCatResto,
+  getFavCat,
 };

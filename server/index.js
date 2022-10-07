@@ -12,6 +12,10 @@ const {
   removeFromFavorites,
   getCategories,
   getPOI,
+  getRestos,
+  getSpecificResto,
+  getCatResto,
+  getFavCat,
 } = require("./handlers");
 
 express()
@@ -21,14 +25,17 @@ express()
   //
   // endpoints
   .get("/api/get-hotels/:badge", getHotels)
-  .get("/api/hotels/hotelDetails/:id", getSpecificHotel)
+  .get("/api/hotels/hotelDetails/:_id", getSpecificHotel)
   .post("/api/new-user", newUser)
   .post("/api/add-to-favorites", addToFavorites)
-  .get("/api/get-favorites/:userEmail", getFavorites)
+  .get("/api/get-favorites/:userEmail/:category", getFavorites)
   .patch("/api/remove-from-favorites", removeFromFavorites)
   .get("/api/categories", getCategories)
   .get("/api/get-POI", getPOI)
-
+  .get("/api/get-restos/:price", getRestos)
+  .get("/api/restaurants/restaurantDetails/:_id", getSpecificResto)
+  .get("/api/restoCat", getCatResto)
+  .get("/api/favCat/:userEmail", getFavCat)
   // this is our catch all endpoint.
   .get("*", (req, res) => {
     res.status(404).json({

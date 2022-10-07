@@ -17,6 +17,7 @@ const HotelCard = ({
     sum += rat;
   });
   const average = sum / rating.length;
+
   return (
     <Wrapper to={`/hotels/hotelDetails/${id}`}>
       <Image src={imageSrc} alt="image of hotel" />
@@ -93,6 +94,7 @@ const Wrapper = styled(Link)`
   text-decoration: none;
   &:hover {
     transform: scale(1.1);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   }
 `;
 const Image = styled.img`

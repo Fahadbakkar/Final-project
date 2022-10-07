@@ -23,10 +23,10 @@ const HotelDetail = () => {
 
   const [comment, setComment] = useState("");
   //fetch specific hotel
-  const [hotel, setHotel] = useState({});
+  const [hotel, setHotel] = useState(null);
   const [alert, setAlert] = useState(false);
   const [remove, setRemove] = useState(false);
-  const [loaded, Setloaded] = useState(false);
+  const [loaded, setloaded] = useState(false);
   const [reviews, setReviews] = useState([]);
   const [reviewIndex, setReviewIndex] = useState(
     Math.floor(Math.random() * reviews.length)
@@ -37,7 +37,8 @@ const HotelDetail = () => {
       .then((res) => res.json())
       .then((data) => {
         setHotel(data.data);
-        Setloaded(true);
+
+        setloaded(true);
         setReviews(data.data.summary);
       });
   }, []);
@@ -60,7 +61,7 @@ const HotelDetail = () => {
   //   }, [comment]);
   //
   // remove from favorites
-  const handleRemove = (name) => {
+  const handleRemove = () => {
     setFavorites(favorites.filter((favorite) => favorite.id !== name));
 
     fetch("/api/remove-from-favorites", {
@@ -69,10 +70,13 @@ const HotelDetail = () => {
         Accept: "application/json",
         "content-Type": "application/json",
       },
-      body: JSON.stringify({ userEmail: user.email, name: hotel.name }),
+      body: JSON.stringify({
+        userEmail: user.email,
+        name: hotel.name,
+        id: name,
+      }),
     })
       .then((res) => {
-        console.log(res);
         setRemove(true);
         setLoad(!load);
       })
@@ -99,7 +103,11 @@ const HotelDetail = () => {
           Accept: "application/json",
           "content-Type": "application/json",
         },
-        body: JSON.stringify({ ...body, userEmail: user.email.toLowerCase() }),
+        body: JSON.stringify({
+          ...body,
+          userEmail: user.email.toLowerCase(),
+          category: "hotel",
+        }),
       })
         .then((res) => res.json())
         .then(setLoad(!load))
@@ -112,7 +120,7 @@ const HotelDetail = () => {
     }
   };
 
-  return loaded ? (
+  return hotel ? (
     <Wrapper>
       {alert && (
         <Alert

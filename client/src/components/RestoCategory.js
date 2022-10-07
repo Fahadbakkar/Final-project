@@ -1,8 +1,7 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Loader from "./Loader";
-const Category = ({ value, setValue }) => {
+const RestoCategory = ({ value, setValue }) => {
   const [check, setCheck] = useState("All");
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -11,19 +10,17 @@ const Category = ({ value, setValue }) => {
 
     setValue(e.target.value);
   };
-
   useEffect(() => {
-    fetch("/api/categories")
+    fetch("/api/restoCat")
       .then((res) => res.json())
       .then((data) => {
         setItems(data.data);
         setLoading(true);
       });
-  }, []);
+  }, [value]);
 
   let noDuplicates = [...new Set(items)];
   noDuplicates.push("All");
-
   return (
     <>
       {loading ? (
@@ -58,11 +55,10 @@ const Label = styled.label`
   margin-top: 5px;
   font-weight: bold;
 `;
-
 const RadioDiv = styled.div`
   display: flex;
   flex-direction: column;
   font-size: 20px;
   align-items: center;
 `;
-export default Category;
+export default RestoCategory;

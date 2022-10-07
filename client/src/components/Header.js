@@ -42,6 +42,9 @@ const Favorite = styled(Link)`
   &:hover {
     border-bottom: 1px solid black;
     cursor: pointer;
+    background-color: yellow;
+    color: black;
+    border-radius: 5px;
   }
 `;
 const AboutUsText = styled(Link)`

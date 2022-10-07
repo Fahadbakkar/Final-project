@@ -1,14 +1,78 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
+import { useAuth0 } from "@auth0/auth0-react";
+import { Alert } from "@mui/material";
+import { useEffect, useState } from "react";
 const Home = () => {
+  const [alert, setAlert] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setAlert(true);
+    }, 3000);
+  }, []);
   return (
     <>
+      {alert && (
+        <Alert
+          style={{
+            marginLeft: "30%",
+            marginRight: "48%",
+            backgroundColor: "#fbc02d",
+            fontWeight: "bolder",
+            position: "absolute",
+            height: "30%",
+            width: "25%",
+          }}
+          onClose={() => setAlert(false)}
+          elevation={6}
+          variant="filled"
+          icon={false}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <h1
+              style={{
+                backgroundColor: "black",
+                borderRadius: "5px",
+                marginBottom: "40px",
+                padding: "5px",
+              }}
+            >
+              {" "}
+              Sign up today and get 10% off your next Tour on any partnered
+              booking site!
+            </h1>
+
+            <Input
+              type="email"
+              placeholder="Email"
+              style={{ width: "80%", borderRadius: "5px", marginBottom: "2%" }}
+            />
+            <Submit
+              onClick={() => setAlert(false)}
+              style={{
+                padding: "3px",
+                background: "none",
+                borderRadius: "5px",
+              }}
+            >
+              Submit
+            </Submit>
+          </div>
+        </Alert>
+      )}
       <Wrapper>
         <Welcome>
           Welcome <Span>to Montreal!</Span>
         </Welcome>
-        <P>Top rated hotels</P>
+        <P>Top rated Hotels, Points of Interests & Restos</P>
       </Wrapper>
       <div>
         <Cat>
@@ -26,12 +90,34 @@ const Home = () => {
             <Img src="https://www.fcholidays.com/sites/default/files/styles/product_highlight/public/uploads/2019-02/Montreal%C2%A9TQFleming%2CP%20TQ-011946.jpg" />
             <Name>Point of Interests</Name>
           </BottomDiv>
+          <BottomDiv to="/restaurants">
+            <Img
+              src="https://assets.cntraveller.in/photos/614071700adc3d1e95c7adbd/master/pass/outdoor-dining-pune-daily-all-day.jpg"
+              alt="resto"
+            />
+            <Name>Restaurants</Name>
+          </BottomDiv>
         </Category>
       </div>
       <Footer />
     </>
   );
 };
+const Submit = styled.button`
+  &:hover {
+    background: black;
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  }
+`;
+const Input = styled.input`
+  &:hover {
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+
+    outline: 1px blue solid;
+  }
+`;
 const Category = styled.div`
 display:flex;
 flex-direction:row;

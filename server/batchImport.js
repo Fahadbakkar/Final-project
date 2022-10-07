@@ -1,5 +1,6 @@
 const { hotels } = require("./data");
 const { pointOfInterest } = require("./data");
+const { resto } = require("./data");
 const { MongoClient } = require("mongodb");
 require("dotenv").config();
 const { MONGO_URI } = process.env;
@@ -14,7 +15,7 @@ const batchImport = async () => {
     await client.connect();
     const db = client.db("Final-project");
 
-    const allHotels = await db.collection("POI").insertMany(pointOfInterest);
+    const allHotels = await db.collection("resto").insertMany(resto);
   } catch (error) {
     console.log(error);
   } finally {

@@ -19,7 +19,7 @@ const Hotels = () => {
 
   return (
     <PageDiv>
-      {hotels.length === 0 && <Loader />}
+      {hotels.length === 0 && <p>Please wait...</p>}
       {hotels.length > 1 && (
         <>
           <CategoryDiv>
