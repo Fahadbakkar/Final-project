@@ -8,7 +8,7 @@ const FavResto = ({ name, image, address, _id }) => {
     useContext(FavoriteContext);
   const { user, loginWithRedirect } = useAuth0();
 
-  //remove
+  //remove from favorites
   const handleRemove = (name) => {
     setFavorites(favorites.filter((favorite) => favorite.id !== _id));
 
@@ -27,7 +27,7 @@ const FavResto = ({ name, image, address, _id }) => {
         console.error("error", error);
       });
   };
-  //add
+  //add to favorites
   const handleClick = () => {
     if (user) {
       const body = {

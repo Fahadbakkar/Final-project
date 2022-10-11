@@ -16,6 +16,8 @@ const {
   getSpecificResto,
   getCatResto,
   getFavCat,
+  postReview,
+  getReviews,
 } = require("./handlers");
 
 express()
@@ -36,6 +38,8 @@ express()
   .get("/api/restaurants/restaurantDetails/:_id", getSpecificResto)
   .get("/api/restoCat", getCatResto)
   .get("/api/favCat/:userEmail", getFavCat)
+  .post("/api/review", postReview)
+  .get("/api/review", getReviews)
   // this is our catch all endpoint.
   .get("*", (req, res) => {
     res.status(404).json({

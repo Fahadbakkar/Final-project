@@ -8,7 +8,7 @@ const RestoDetail = () => {
   const [resto, setResto] = useState({});
   const [loaded, setLoaded] = useState(false);
   const { _id } = useParams();
-  console.log(_id);
+
   useEffect(() => {
     fetch(`/api/restaurants/restaurantDetails/${_id}`)
       .then((res) => res.json())

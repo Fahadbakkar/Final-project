@@ -7,7 +7,7 @@ const Map = ({ lat, lng, url }) => {
   //   console.log(process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_API_KEY);
 
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyCZvN5cXM3-raKcmzw75mKHGyYcq70cISc",
+    googleMapsApiKey: process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_API_KEY,
   });
   if (!isLoaded) return <Loader />;
   return (

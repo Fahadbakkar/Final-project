@@ -6,6 +6,9 @@ import { Alert } from "@mui/material";
 import { useEffect, useState } from "react";
 const Home = () => {
   const [alert, setAlert] = useState(false);
+  const { user } = useAuth0();
+  console.log(user);
+  // to get a popup
   useEffect(() => {
     setTimeout(() => {
       setAlert(true);
@@ -16,7 +19,7 @@ const Home = () => {
       {alert && (
         <Alert
           style={{
-            marginLeft: "30%",
+            marginLeft: "35%",
             marginRight: "48%",
             backgroundColor: "#fbc02d",
             fontWeight: "bolder",
@@ -53,7 +56,12 @@ const Home = () => {
             <Input
               type="email"
               placeholder="Email"
-              style={{ width: "80%", borderRadius: "5px", marginBottom: "2%" }}
+              style={{
+                width: "80%",
+                borderRadius: "5px",
+                marginBottom: "2%",
+                height: "2rem",
+              }}
             />
             <Submit
               onClick={() => setAlert(false)}
@@ -104,6 +112,10 @@ const Home = () => {
   );
 };
 const Submit = styled.button`
+  width: 6rem;
+  height: 2rem;
+  font-size: 18px;
+  font-weight: bold;
   &:hover {
     background: black;
     cursor: pointer;

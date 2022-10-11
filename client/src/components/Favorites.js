@@ -6,16 +6,17 @@ import { Link } from "react-router-dom";
 import FavCategory from "./FavCategory";
 const Favorites = () => {
   const { user } = useAuth0();
+
   const [value, setValue] = useState("All");
   const [data, setData] = useState([]);
   const [id, setId] = useState("");
   const [loading, setLoading] = useState(false);
+  // get the user singed in favorites and category if chosen
   useEffect(() => {
     if (user && value) {
       fetch("/api/get-favorites/" + user.email + "/" + value)
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           setData(data.result);
           setLoading(true);
         })

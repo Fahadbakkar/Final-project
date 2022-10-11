@@ -6,12 +6,13 @@ const Category = ({ value, setValue }) => {
   const [check, setCheck] = useState("All");
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
+  // to set the state to what was chosen
   const handleChange = (e) => {
     setCheck(e.target.value);
 
     setValue(e.target.value);
   };
-
+  //fetching category
   useEffect(() => {
     fetch("/api/categories")
       .then((res) => res.json())
@@ -20,7 +21,7 @@ const Category = ({ value, setValue }) => {
         setLoading(true);
       });
   }, []);
-
+  //remove duplicates
   let noDuplicates = [...new Set(items)];
   noDuplicates.push("All");
 

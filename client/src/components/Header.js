@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { AiOutlineStar } from "react-icons/ai";
 import { useAuth0 } from "@auth0/auth0-react";
-
+import Reviews from "./Reviews";
 const Header = () => {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   return (
@@ -13,19 +13,35 @@ const Header = () => {
       </div>
       <AboutDiv>
         {isAuthenticated && (
-          <Favorite to="/favorites">
-            Favorites
-            <AiOutlineStar />
-          </Favorite>
+          <>
+            <Favorite to="/favorites">
+              Favorites
+              <AiOutlineStar />
+            </Favorite>
+          </>
         )}
+        <Review to="/Reviews">Reviews</Review>
         <AboutUsText to="/aboutUs">About us</AboutUsText>
         <UserToggle />
       </AboutDiv>
     </Wrapper>
   );
 };
+const Review = styled(Link)`
+  text-decoration: none;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  font-family: poppins;
+  font-weight: bold;
+  margin-right: 0.5rem;
+  &:hover {
+    border-bottom: 1px solid black;
+    cursor: pointer;
+  }
+`;
 const H1 = styled(Link)`
-  margin-left: 5px;
+  margin-left: 2rem;
   text-decoration: none;
   font-weight: bold;
   color: white;

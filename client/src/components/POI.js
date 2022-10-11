@@ -4,6 +4,7 @@ import POImap from "./POImap";
 const POI = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+  //to fetch points of interest
   useEffect(() => {
     fetch("/api/get-POI")
       .then((res) => res.json())

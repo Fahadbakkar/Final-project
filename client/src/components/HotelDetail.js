@@ -9,8 +9,6 @@ import { FavoriteContext } from "./FavoriteContext";
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Alert } from "@mui/material";
-import { Snackbar } from "@mui/material";
-import { textAlign } from "@mui/system";
 
 //
 //
@@ -22,7 +20,6 @@ const HotelDetail = () => {
   const { name } = useParams();
 
   const [comment, setComment] = useState("");
-  //fetch specific hotel
   const [hotel, setHotel] = useState(null);
   const [alert, setAlert] = useState(false);
   const [remove, setRemove] = useState(false);
@@ -32,6 +29,7 @@ const HotelDetail = () => {
     Math.floor(Math.random() * reviews.length)
   );
 
+  //fetch specific hotel
   useEffect(() => {
     fetch(`/api/hotels/hotelDetails/${name}`)
       .then((res) => res.json())

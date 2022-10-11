@@ -30,6 +30,11 @@ const getHotels = async (req, res) => {
       });
     }
   } catch (error) {
+    res.status(400).json({
+      status: 400,
+
+      message: "Hotels not found",
+    });
     console.log(error);
   } finally {
     client.close();
@@ -49,6 +54,11 @@ const getSpecificHotel = async (req, res) => {
       data: hotel,
     });
   } catch (error) {
+    res.status(400).json({
+      status: 400,
+
+      message: "hotel not found",
+    });
     console.log(error);
   } finally {
     client.close();
@@ -117,7 +127,7 @@ const addToFavorites = async (req, res) => {
 const removeFromFavorites = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
   const { name, userEmail, id } = req.body;
-  console.log(id);
+
   try {
     await client.connect();
     const db = client.db("Final-project");
@@ -142,7 +152,7 @@ const getFavorites = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
   const userEmail = req.params.userEmail;
   const category = req.params.category;
-  console.log(category);
+
   try {
     await client.connect();
     const db = client.db("Final-project");
@@ -190,7 +200,7 @@ const getCategories = async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    res.status(500).json({ status: 500, message: err.message });
+    res.status(500).json({ status: 500, message: "categories not found" });
   } finally {
     client.close();
   }
@@ -231,7 +241,7 @@ const getRestos = async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    res.status(500).json({ status: 500, message: err.message });
+    res.status(500).json({ status: 500, message: "restos not found" });
   } finally {
     client.close();
   }
@@ -250,11 +260,17 @@ const getSpecificResto = async (req, res) => {
       data: resto,
     });
   } catch (error) {
+    res.status(400).json({
+      status: 400,
+
+      message: "resto not found",
+    });
     console.log(error);
   } finally {
     client.close();
   }
 };
+// get categories for restos
 const getCatResto = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
   try {
@@ -276,6 +292,7 @@ const getCatResto = async (req, res) => {
     client.close();
   }
 };
+//get categories for favorites
 const getFavCat = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
   const email = req.params.userEmail;
@@ -299,6 +316,49 @@ const getFavCat = async (req, res) => {
   }
 };
 
+const postReview = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, options);
+  const { name, review, rating } = req.body;
+
+  try {
+    await client.connect();
+    const db = client.db("Final-project");
+    const result = await db
+      .collection("reviews")
+      .insertOne({ name: name, review: review, rating: rating });
+
+    res.status(200).json({
+      status: 200,
+      data: result,
+      message: "Successfully posted reviews",
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ status: 500, message: "error posting review" });
+  } finally {
+    client.close();
+  }
+};
+const getReviews = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, options);
+  try {
+    await client.connect();
+    const db = client.db("Final-project");
+    const result = await db.collection("reviews").find().toArray();
+
+    res.status(200).json({
+      status: 200,
+      data: result,
+      message: "Successfully retrieved reviews",
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ status: 500, message: "couldnt retrieve reviews" });
+  } finally {
+    client.close();
+  }
+};
+
 module.exports = {
   getHotels,
   getSpecificHotel,
@@ -312,4 +372,6 @@ module.exports = {
   getSpecificResto,
   getCatResto,
   getFavCat,
+  postReview,
+  getReviews,
 };

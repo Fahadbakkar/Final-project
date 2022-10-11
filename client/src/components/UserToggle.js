@@ -12,7 +12,16 @@ const UserToggle = () => {
           : loginWithRedirect()
       }
     >
-      {isAuthenticated ? `Logout` : "Login"}
+      {isAuthenticated ? (
+        <p>
+          Logout
+          <BiLogOut />
+        </p>
+      ) : (
+        <p>
+          Login <BiLogIn />
+        </p>
+      )}
     </Button>
   );
 };

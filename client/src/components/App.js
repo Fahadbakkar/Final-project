@@ -10,6 +10,7 @@ import AboutUs from "./AboutUs";
 import POI from "./POI";
 import Restos from "./Restos";
 import RestoDetail from "./RestoDetail";
+import Reviews from "./Reviews";
 const App = () => {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   return (
@@ -25,10 +26,12 @@ const App = () => {
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/points-of-interests" element={<POI />} />
         <Route path="/restaurants" element={<Restos />} />
+        <Route path="/Reviews" element={<Reviews />} />
         <Route
           path="/restaurants/restaurantsdetails/:_id"
           element={<RestoDetail />}
         />
+        <Route path="" element={<h1>Error! Code: 231543223</h1>} />
       </Routes>
     </BrowserRouter>
   );

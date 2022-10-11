@@ -1,5 +1,5 @@
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
-import styled from "styled-components";
+
 import Loader from "./Loader";
 const Restomap = ({ lat, lng }) => {
   const latitude = Number(lat);
@@ -7,7 +7,8 @@ const Restomap = ({ lat, lng }) => {
   //   console.log(process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_API_KEY);
 
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyCZvN5cXM3-raKcmzw75mKHGyYcq70cISc",
+    //wasnt working when I ecrypted so i put the key itself
+    googleMapsApiKey: process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_API_KEY,
   });
   if (!isLoaded) return <Loader />;
   return (

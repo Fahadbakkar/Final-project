@@ -12,6 +12,7 @@ const FavCategory = ({ value, setValue }) => {
 
     setValue(e.target.value);
   };
+  //fetch categories
   useEffect(() => {
     fetch("/api/favCat/" + user.email)
       .then((res) => res.json())

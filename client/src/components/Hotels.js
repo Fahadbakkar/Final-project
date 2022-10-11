@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import Loader from "./Loader";
+
 import HotelCard from "./HotelCard";
 import styled from "styled-components";
 import Category from "./Category";
 const Hotels = () => {
   const [value, setValue] = useState("All");
   const [hotels, setHotels] = useState([]);
+  //get hotels with category
   useEffect(() => {
     fetch(`/api/get-Hotels/${value}`)
       .then((res) => res.json())
