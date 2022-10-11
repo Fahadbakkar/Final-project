@@ -47,7 +47,7 @@ const RestoDetail = () => {
                 })}
               </Infodiv>
             </Fulldiv>
-            {/* <RestoMap lat={resto.latitude} lng={resto.longitude} /> */}
+            <RestoMap lat={resto.latitude} lng={resto.longitude} />
           </Main>
         </>
       ) : (

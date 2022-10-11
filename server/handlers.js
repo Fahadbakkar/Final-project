@@ -250,7 +250,7 @@ const getRestos = async (req, res) => {
 const getSpecificResto = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
   const _id = req.params._id;
-  console.log(req.params._id);
+
   try {
     await client.connect();
     const db = client.db("Final-project");
@@ -279,7 +279,7 @@ const getCatResto = async (req, res) => {
     const result = (
       await db.collection("resto").find().project({ price_level: 1 }).toArray()
     ).map((category) => category.price_level);
-    console.log(result);
+
     res.status(200).json({
       status: 200,
       data: result,

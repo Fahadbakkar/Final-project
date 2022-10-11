@@ -26,7 +26,7 @@ const POI = () => {
                   <P>{poi.description}</P>
                   <a href={poi.url}>{poi.url}</a>
                 </Info>
-                {/* <POImap lat={poi.lat} lng={poi.lng} /> */}
+                <POImap lat={poi.lat} lng={poi.lng} />
               </Map>
             </POIdiv>
             <Copy>{poi.copy}</Copy>
