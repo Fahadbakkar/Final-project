@@ -42,21 +42,21 @@ const HotelDetail = () => {
   }, []);
 
   //selectRandom Review
-  //   useEffect(() => {
-  //     const randomSelected = () => {
-  //       const newIndex = Math.floor(Math.random() * reviews.length);
-  //       if (newIndex === reviewIndex) {
-  //         randomSelected();
-  //       } else setReviewIndex(newIndex);
-  //       return;
-  //     };
-  //     if (reviews.length > 0) {
-  //       randomSelected();
-  //     }
-  //     setTimeout(() => {
-  //       setComment(reviews[reviewIndex]);
-  //     }, 3000);
-  //   }, [comment]);
+  useEffect(() => {
+    const randomSelected = () => {
+      const newIndex = Math.floor(Math.random() * reviews.length);
+      if (newIndex === reviewIndex) {
+        randomSelected();
+      } else setReviewIndex(newIndex);
+      return;
+    };
+    if (reviews.length > 0) {
+      randomSelected();
+    }
+    setTimeout(() => {
+      setComment(reviews[reviewIndex]);
+    }, 3000);
+  }, [comment]);
   //
   // remove from favorites
   const handleRemove = () => {
@@ -185,9 +185,9 @@ const HotelDetail = () => {
         <Reviews>Reviews</Reviews>
         {comment && <Comment>"{comment}"</Comment>}
       </Reviewdiv>
-      {/* <div>
+      <div>
         <Map lat={hotel.lat} lng={hotel.lng} url={hotel.url} />
-      </div> */}
+      </div>
     </Wrapper>
   ) : (
     <Loader />
