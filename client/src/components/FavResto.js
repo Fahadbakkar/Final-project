@@ -60,7 +60,7 @@ const FavResto = ({ name, image, address, _id }) => {
       loginWithRedirect();
     }
   };
-
+  console.log(favorites);
   return (
     <>
       {!favorites.filter((favorite) => {

@@ -9,14 +9,14 @@ const FavoriteProvider = ({ children }) => {
 
   const [favorites, setFavorites] = useState([]);
   const [load, setLoad] = useState(false);
-
+  const [cat, setCat] = useState("All");
   useEffect(() => {
     if (user) {
-      fetch(`/api/get-favorites/` + user.email)
+      fetch(`/api/get-favorites/` + user.email + "/" + cat)
         .then((res) => res.json())
         .then((data) => {
           if (data.result) {
-            setFavorites(data.result.favorites);
+            setFavorites(data.result);
           }
         })
         .catch((err) => console.log(err));

@@ -23,6 +23,7 @@ const Favorites = () => {
         .catch((err) => console.log(err));
     }
   }, [user, value]);
+  console.log(data);
   return loading ? (
     <>
       {data.length && data.length > 0 ? (
@@ -35,14 +36,18 @@ const Favorites = () => {
       <Wrapper>
         {data.length && data.length > 0 ? (
           data.map((hotel) => {
-            return (
-              <>
-                <Favoritediv to={"/hotels/hotelDetails/" + hotel.id}>
-                  <Img src={hotel.image} alt="detail of hotel" />
-                  <Name>{hotel.name}</Name>
-                  <Address>{hotel.address}</Address>
-                </Favoritediv>
-              </>
+            return hotel.category === "hotel" ? (
+              <Favoritediv to={"/hotels/hotelDetails/" + hotel.id}>
+                <Img src={hotel.image} alt="detail of hotel" />
+                <Name>{hotel.name}</Name>
+                <Address>{hotel.address}</Address>
+              </Favoritediv>
+            ) : (
+              <Favoritediv to={"/restaurants/restaurantsdetails/" + hotel.id}>
+                <Img src={hotel.image} alt="detail of hotel" />
+                <Name>{hotel.name}</Name>
+                <Address>{hotel.address}</Address>
+              </Favoritediv>
             );
           })
         ) : (

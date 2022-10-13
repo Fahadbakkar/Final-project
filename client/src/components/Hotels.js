@@ -52,13 +52,15 @@ const Hotels = () => {
 };
 const PageDiv = styled.div`
   display: flex;
+  flex-direction: column;
 `;
 const CategoryDiv = styled.div``;
 const HotelPage = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-left: 20%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  margin-left: 10%;
 `;
 export default Hotels;

@@ -88,7 +88,7 @@ const Wrapper = styled(Link)`
   border: 1px solid rgb(178, 34, 34);
   border-radius: 5px;
   display: flex;
-  width: 800px;
+  width: 700px;
   color: black;
   background-color: rgb(178, 34, 34);
   text-decoration: none;

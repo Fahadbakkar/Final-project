@@ -28,7 +28,7 @@ const FavCategory = ({ value, setValue }) => {
     <>
       {loading ? (
         <RadioDiv>
-          <Choose>Choose a rating!</Choose>
+          <Choose>Choose a category!</Choose>
           {noDuplicates.length > 0 &&
             noDuplicates.map((rat) => {
               return (
